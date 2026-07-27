@@ -76,6 +76,9 @@ app.post("/webhook", async (req, res) => {
     // Status callbacks (sent/delivered/read receipts) — no reply needed.
     if (status) {
       console.log(`Status update: ${status.status} for ${status.recipient_id}`);
+      if (status.errors) {
+        console.error("Status error detail:", JSON.stringify(status.errors));
+      }
     }
 
     if (message && message.type === "text") {
