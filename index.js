@@ -257,6 +257,12 @@ app.post("/webhook", async (req, res) => {
 
 app.get("/", (_req, res) => res.send("CityHospital WhatsApp bot is running."));
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+// Only start a listener when run directly (local dev).
+// On Vercel the app is imported as a serverless handler instead.
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+  });
+}
+
+module.exports = app;
