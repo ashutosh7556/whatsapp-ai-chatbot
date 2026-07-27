@@ -15,20 +15,177 @@ const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
 function getReply(text) {
   const msg = (text || "").trim().toLowerCase();
 
-  if (msg === "hi" || msg === "hello") {
-    return "Hi, hello from Ashutosh!";
+  // 🌍 Greetings in multiple languages
+  const greetings = [
+    "hi",
+    "hii",
+    "hiii",
+    "hello",
+    "hey",
+    "heyy",
+    "yo",
+    "hola",
+    "bonjour",
+    "namaste",
+    "namaskar",
+    "नमस्ते",
+    "नमस्कार",
+    "राम राम",
+    "जय श्री राम",
+    "good morning",
+    "good afternoon",
+    "good evening",
+    "good night",
+    "salaam",
+    "ciao",
+    "konnichiwa",
+    "annyeong",
+    "ni hao",
+    "marhaba"
+  ];
+
+  // 👋 Welcome Message
+  if (greetings.includes(msg)) {
+    return `👋 Hello! नमस्ते!
+
+Welcome to *Ashutosh AI Assistant* 🤖
+
+I'm Ashutosh's AI portfolio assistant.
+
+📋 Available options:
+
+1️⃣ About Me
+2️⃣ My Projects
+3️⃣ Skills
+4️⃣ Resume
+5️⃣ Contact
+6️⃣ GitHub
+7️⃣ LinkedIn
+
+💬 Reply with a number or type *menu* anytime.`;
   }
 
-  if (msg === "menu") {
-    return (
-      "Welcome to CityHospital. Please choose an option:\n" +
-      "1. Book Appointment\n" +
-      "2. Contact Support\n" +
-      "3. Hospital Info"
-    );
-  }
+  switch (msg) {
+    case "1":
+      return `👨‍💻 *About Me*
 
-  return `You said: "${text}". Type "menu" to see what I can do.`;
+Hi! I'm Ashutosh, a Full Stack Developer from India.
+
+💻 I specialize in:
+• React.js
+• Node.js
+• Laravel
+• PHP
+• MySQL
+• JavaScript
+
+🤖 Currently building AI-powered applications and e-commerce websites.`;
+
+    case "2":
+  return `🚀 *My Projects*
+
+1️⃣ 🤖 Hospital WhatsApp Chatbot
+   Tech: Node.js • Express • WhatsApp Cloud API
+
+2️⃣ 🗳️ Online Voting System
+   Tech: PHP • MySQL • Bootstrap
+
+3️⃣ 🌐 Personal Portfolio
+   Tech: React.js • GSAP • Tailwind CSS
+
+4️⃣ 🤖 AI Chatbot Projects
+   Tech: OpenAI API • Node.js
+
+5️⃣ 🏨 Banquet Management System
+   Tech: Laravel • PHP • MySQL
+
+6️⃣ 📝 Blog Management System
+   Tech: Laravel • PHP • MySQL
+
+7️⃣ 📋 Task Pilot
+   Tech: React.js • Node.js • MongoDB
+
+💻 Want to see the source code?
+Reply *6* to open my GitHub profile.
+`;
+
+    case "3":
+      return `💻 *Technical Skills*
+
+✔ React.js
+✔ Node.js
+✔ Laravel
+✔ PHP
+✔ MySQL
+✔ JavaScript
+✔ REST APIs
+✔ Git & GitHub
+✔ HTML/CSS
+✔ Bootstrap`;
+
+    case "4":
+      return `📄 *Resume*
+
+I'm currently updating my resume.
+
+It will be available soon. 😊`;
+
+    case "5":
+      return `📞 *Contact Information*
+
+📧 Email:
+ap3940862@email.com
+
+📱 Phone:
++91 96387 76815`;
+
+    case "6":
+      return `🔗 *GitHub*
+
+https://github.com/ashutosh7556`;
+
+    case "7":
+      return `💼 *LinkedIn*
+
+(Add your LinkedIn profile here)
+
+https://www.linkedin.com/in/ashutosh-pandey-b3470b35a/`;
+
+    case "menu":
+      return `📋 *Main Menu*
+
+1️⃣ About Me
+2️⃣ My Projects
+3️⃣ Skills
+4️⃣ Resume
+5️⃣ Contact
+6️⃣ GitHub
+7️⃣ LinkedIn
+
+Reply with the corresponding number.`;
+
+    default:
+      return `🤔 Sorry, I couldn't understand your message.
+
+💡 Try one of these:
+
+👋 Hi
+👋 Hello
+🙏 Namaste
+📋 Menu
+
+Or reply with:
+
+1️⃣ About Me
+2️⃣ My Projects
+3️⃣ Skills
+4️⃣ Resume
+5️⃣ Contact
+6️⃣ GitHub
+7️⃣ LinkedIn
+
+😊 I'm here to help!`;
+  }
 }
 
 // ---- Send a WhatsApp text message back via the Cloud API ----
